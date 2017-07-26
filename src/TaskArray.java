@@ -42,6 +42,7 @@ public class TaskArray {
         //ЗАДАНИЕ 2
         //----------
         countMaxRepeat(arrayData);
+        countMinRepeat(arrayData);
 
     }
 
@@ -145,4 +146,22 @@ public class TaskArray {
         System.out.println("Максимальное кол-во повторений чисел в массиве: " + maxRepeat);
     }
 
+    public static void countMinRepeat(int[] arrayData){
+
+        int minRepeat = 10000;
+        for (int el: arrayData
+                ) {
+            int repeatElement = 0;
+            for (int i = 0; i < arrayData.length; i++){
+                if (el == arrayData[i]){
+                    repeatElement++;
+                }
+            }
+            if (repeatElement < minRepeat){
+                minRepeat = repeatElement;
+            }
+        }
+
+        System.out.println("Минимальное кол-во повторений чисел в массиве: " + minRepeat);
+    }
 }
