@@ -1,5 +1,6 @@
 import com.sun.jmx.snmp.SnmpStatusException;
 
+import javax.xml.transform.dom.DOMResult;
 import java.util.Scanner;
 
 /**
@@ -21,6 +22,9 @@ public class TaskArray {
             in.nextLine();
         }
 
+        //----------
+        //ЗАДАНИЕ 1
+        //----------
         int maxValue = maxArrayValue(arrayData);
         int minValue = minArrayValue(arrayData);
         int coutRepeat = coutRepeat5(arrayData);
@@ -32,6 +36,12 @@ public class TaskArray {
         bubleSortMax(arrayData);
         System.out.println("");
         bubleSortMin(arrayData);
+        System.out.println("");
+
+        //----------
+        //ЗАДАНИЕ 2
+        //----------
+        countMaxRepeat(arrayData);
 
     }
 
@@ -115,4 +125,24 @@ public class TaskArray {
             System.out.print(" " + el);
         }
     }
+
+    public static void countMaxRepeat(int[] arrayData){
+
+        int maxRepeat = 0;
+        for (int el: arrayData
+             ) {
+            int repeatElement = 0;
+            for (int i = 0; i < arrayData.length; i++){
+                if (el == arrayData[i]){
+                    repeatElement++;
+                }
+            }
+            if (repeatElement > maxRepeat){
+                maxRepeat = repeatElement;
+            }
+        }
+
+        System.out.println("Максимальное кол-во повторений чисел в массиве: " + maxRepeat);
+    }
+
 }
