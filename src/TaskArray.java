@@ -11,15 +11,31 @@ public class TaskArray {
 
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Введите размер массива:");
+        /*System.out.println("Введите размер массива:");
         int arrayLength = in.nextInt();
-        in.nextLine();
+        in.nextLine();*/
 
-        int[] arrayData = new int[arrayLength];
-        for (int i = 0; i < arrayLength; i++){
-            System.out.println("Введите элемент массива: ");
-            arrayData[i] = in.nextInt();
+        System.out.println("Введите с клавиатуры 777, чтоб закончить ввод элементов массива");
+
+        int[] arrayDataIn = new int[10000000];
+        int countStep = 0;
+
+        for (int i = 0; i < 10000000; i++){
+            System.out.println("Введите элемент массива (777, чтоб остановить ввод данных): ");
+            int dataIn = in.nextInt();
+            if (dataIn == 777){
+                break;}
+            else{
+                arrayDataIn[i] = dataIn;
+                countStep++;
+                }
+
             in.nextLine();
+        }
+
+        int[] arrayData = new int[countStep];
+        for (int i = 0; i < countStep; i++){
+            arrayData[i] = arrayDataIn[i];
         }
 
         //----------
