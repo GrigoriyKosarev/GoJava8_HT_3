@@ -29,6 +29,10 @@ public class TaskArray {
         System.out.println("Максимальное значения массива: " + maxValue);
         System.out.println("Количество повторений числа 5: " + coutRepeat);
 
+        bubleSortMax(arrayData);
+        System.out.println("");
+        bubleSortMin(arrayData);
+
     }
 
     public static int maxArrayValue(int[] arrayData){
@@ -72,5 +76,43 @@ public class TaskArray {
         }
         return coutRepeat;
 
+    }
+
+    public static void bubleSortMax(int[] arrayData){
+
+        for (int i = 0; i < arrayData.length; i++){
+            for (int j = 0; j < arrayData.length - 1; j++){
+                int el = arrayData[i];
+                if (el > arrayData[j]){
+                    arrayData[i] = arrayData[j];
+                    arrayData[j] = el;
+                }
+            }
+        }
+
+        System.out.println("Отсортированный массив (по спаданию): ");
+        for (int el: arrayData
+             ) {
+            System.out.print(" " + el);
+        }
+    }
+
+    public static void bubleSortMin(int[] arrayData){
+
+        for (int i = 0; i < arrayData.length; i++){
+            for (int j = 0; j < arrayData.length - 1; j++){
+                int el = arrayData[j];
+                if (el > arrayData[i]){
+                    arrayData[j] = arrayData[i];
+                    arrayData[i] = el;
+                }
+            }
+        }
+
+        System.out.println("Отсортированный массив (по возрастанию): ");
+        for (int el: arrayData
+                ) {
+            System.out.print(" " + el);
+        }
     }
 }
