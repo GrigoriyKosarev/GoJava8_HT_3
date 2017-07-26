@@ -21,10 +21,56 @@ public class TaskArray {
             in.nextLine();
         }
 
-        System.out.println("Значения массива:");
+        int maxValue = maxArrayValue(arrayData);
+        int minValue = minArrayValue(arrayData);
+        int coutRepeat = coutRepeat5(arrayData);
+
+        System.out.println("Минимальное значения массива: " + minValue);
+        System.out.println("Максимальное значения массива: " + maxValue);
+        System.out.println("Количество повторений числа 5: " + coutRepeat);
+
+    }
+
+    public static int maxArrayValue(int[] arrayData){
+
+        int maxValue = 0;
+
         for (int el: arrayData
-             ) {
-            System.out.println(el);
+                ) {
+            if (maxValue < el){
+                maxValue = el;
+            }
         }
+
+        return maxValue;
+    }
+
+    public static int minArrayValue(int[] arrayData){
+
+        int minValue = 999999999;
+
+        for (int el: arrayData
+                ) {
+            if (minValue > el){
+                minValue = el;
+            }
+        }
+
+        return minValue;
+    }
+
+    public static int coutRepeat5(int[] arrayData){
+
+        int coutRepeat = 0;
+
+        for (int el:arrayData
+             ) {
+            if(el==5){
+                coutRepeat++;
+            }
+
+        }
+        return coutRepeat;
+
     }
 }
