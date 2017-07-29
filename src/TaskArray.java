@@ -15,17 +15,19 @@ public class TaskArray {
         int arrayLength = in.nextInt();
         in.nextLine();*/
 
-        System.out.println("Введите с клавиатуры 777, чтоб закончить ввод элементов массива");
+        System.out.println("Введите длину массива:");
+        int maxInt = in.nextInt();
 
-        int[] arrayDataIn = new int[10000000];
+        int[] arrayDataIn = new int[maxInt];
         int countStep = 0;
 
-        for (int i = 0; i < 10000000; i++){
-            System.out.println("Введите элемент массива (777, чтоб остановить ввод данных): ");
-            int dataIn = in.nextInt();
-            if (dataIn == 777){
+        for (int i = 0; i < maxInt; i++){
+            System.out.println("Введите элемент массива: ");
+
+            if (!in.hasNextInt()){
                 break;}
             else{
+                int dataIn = in.nextInt();
                 arrayDataIn[i] = dataIn;
                 countStep++;
                 }
@@ -78,7 +80,7 @@ public class TaskArray {
 
     public static int minArrayValue(int[] arrayData){
 
-        int minValue = 999999999;
+        int minValue = arrayData[0];
 
         for (int el: arrayData
                 ) {
