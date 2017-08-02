@@ -150,17 +150,20 @@ public class TaskArray {
                     repeatElement++;
                 }
             }
-            if (repeatElement > maxRepeat){
-                maxRepeat = repeatElement;
+            if (repeatElement > 1){
+                if (repeatElement > maxRepeat){
+                    maxRepeat = repeatElement;
+                }
             }
         }
 
         System.out.println("Максимальное кол-во повторений чисел в массиве: " + maxRepeat);
+
     }
 
     public static void countMinRepeat(int[] arrayData){
 
-        int minRepeat = 10000;
+        int minRepeat = 0;
         for (int el: arrayData
                 ) {
             int repeatElement = 0;
@@ -169,11 +172,17 @@ public class TaskArray {
                     repeatElement++;
                 }
             }
-            if (repeatElement < minRepeat){
-                minRepeat = repeatElement;
+            if (repeatElement > 1){
+                if (minRepeat == 0){
+                    minRepeat = repeatElement;
+                }
+                else if (minRepeat > repeatElement){
+                    minRepeat = repeatElement;
+                }
             }
         }
 
         System.out.println("Минимальное кол-во повторений чисел в массиве: " + minRepeat);
+
     }
 }
