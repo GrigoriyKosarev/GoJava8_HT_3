@@ -66,7 +66,7 @@ public class TaskArray {
 
     public static int maxArrayValue(int[] arrayData){
 
-        int maxValue = 0;
+        int maxValue = arrayData[0];
 
         for (int el: arrayData
                 ) {
