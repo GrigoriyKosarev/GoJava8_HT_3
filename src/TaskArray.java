@@ -53,8 +53,6 @@ public class TaskArray {
 
         bubleSortMax(arrayData);
         System.out.println("");
-        bubleSortMin(arrayData);
-        System.out.println("");
 
         //----------
         //ЗАДАНИЕ 2
@@ -109,40 +107,36 @@ public class TaskArray {
 
     public static void bubleSortMax(int[] arrayData){
 
+        int tempEl = 0;
+        boolean makeSort = false;
+
         for (int i = 0; i < arrayData.length; i++){
-            for (int j = 0; j < arrayData.length - 1; j++){
-                int el = arrayData[i];
-                if (el > arrayData[j]){
-                    arrayData[i] = arrayData[j];
-                    arrayData[j] = el;
-                }
+
+            if ( (i + 1) > arrayData.length - 1)
+                break;
+
+            if (arrayData[i] < arrayData[i + 1]){
+                makeSort = true;
+                tempEl = arrayData[i];
+                arrayData[i] = arrayData[i + 1];
+                arrayData[i + 1] = tempEl;
             }
         }
 
-        System.out.println("Отсортированный массив (по спаданию): ");
-        for (int el: arrayData
-             ) {
-            System.out.print(" " + el);
+        if (makeSort){
+            bubleSortMax(arrayData);
         }
-    }
+        else{
 
-    public static void bubleSortMin(int[] arrayData){
-
-        for (int i = 0; i < arrayData.length; i++){
-            for (int j = 0; j < arrayData.length - 1; j++){
-                int el = arrayData[j];
-                if (el > arrayData[i]){
-                    arrayData[j] = arrayData[i];
-                    arrayData[i] = el;
-                }
+            System.out.println("Отсортированный массив (по спаданию): ");
+            for (int el: arrayData
+                    ) {
+                System.out.print(" " + el);
             }
+            return;
+
         }
 
-        System.out.println("Отсортированный массив (по возрастанию): ");
-        for (int el: arrayData
-                ) {
-            System.out.print(" " + el);
-        }
     }
 
     public static void countMaxRepeat(int[] arrayData){
