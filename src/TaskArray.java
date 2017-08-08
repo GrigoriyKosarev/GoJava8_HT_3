@@ -3,9 +3,6 @@ import com.sun.jmx.snmp.SnmpStatusException;
 import javax.xml.transform.dom.DOMResult;
 import java.util.Scanner;
 
-/**
- * Created by admin on 21.07.2017.
- */
 public class TaskArray {
     public static void main(String[] args) {
 
@@ -105,36 +102,22 @@ public class TaskArray {
 
     }
 
-    public static void bubleSortMax(int[] arrayData){
+    public static void bubleSortMax(int[] arr){
 
-        int tempEl = 0;
-        boolean makeSort = false;
-
-        for (int i = 0; i < arrayData.length; i++){
-
-            if ( (i + 1) > arrayData.length - 1)
-                break;
-
-            if (arrayData[i] < arrayData[i + 1]){
-                makeSort = true;
-                tempEl = arrayData[i];
-                arrayData[i] = arrayData[i + 1];
-                arrayData[i + 1] = tempEl;
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i]>arr[j]){
+                    int tmp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=tmp;
+                }
             }
         }
 
-        if (makeSort){
-            bubleSortMax(arrayData);
-        }
-        else{
-
-            System.out.println("Отсортированный массив (по спаданию): ");
-            for (int el: arrayData
-                    ) {
-                System.out.print(" " + el);
-            }
-            return;
-
+        System.out.println("Отсортированный массив: ");
+        for (int el: arr
+                ) {
+            System.out.print(" " + el);
         }
 
     }
@@ -142,9 +125,10 @@ public class TaskArray {
     public static void countMaxRepeat(int[] arrayData){
 
         int maxRepeat = 0;
+        int repeatElement = 0;
         for (int el: arrayData
              ) {
-            int repeatElement = 0;
+            repeatElement = 0;
             for (int i = 0; i < arrayData.length; i++){
                 if (el == arrayData[i]){
                     repeatElement++;
@@ -164,9 +148,11 @@ public class TaskArray {
     public static void countMinRepeat(int[] arrayData){
 
         int minRepeat = 0;
+        int repeatElement = 0;
+
         for (int el: arrayData
                 ) {
-            int repeatElement = 0;
+            repeatElement = 0;
             for (int i = 0; i < arrayData.length; i++){
                 if (el == arrayData[i]){
                     repeatElement++;
